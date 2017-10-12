@@ -23,9 +23,12 @@ render() {
         <div>
             <h1>Log-In</h1>
             <h3>Please Select an Existing User</h3>
+            <div>
             {this.state.users.map(user => {
             return (<Link key={user._id}to={`/idea/${user._id}`}>{user.userName}</Link>)
             })}
+            <hr/>
+            </div>
             <SignUpForm />
         </div>
         );
