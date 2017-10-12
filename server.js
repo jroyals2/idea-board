@@ -3,6 +3,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const app = express()
+const UsersController = require('./routes/UsersController')
 mongoose.Promise = global.Promise
 
 mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true})
@@ -17,6 +18,7 @@ connection.on('error', (error) => {
 })
 
 app.use(express.static(`${__dirname}/client/build`))
+app.use('/api/users', UsersController)
 app.use(bodyParser.json())
 
 app.get('/', (request, response) => {
