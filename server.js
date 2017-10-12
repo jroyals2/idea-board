@@ -9,7 +9,6 @@ mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true})
 const connection = mongoose.connection;
 
 
-
 connection.on('connected', () => {
     console.log('Successfully connected to MongoDB')
 })
@@ -23,7 +22,7 @@ app.get('/', (request, response) => {
     response.send("hello world!")
 })
 
-const PORT = process.env.PORT || 3000 
+const PORT = process.env.PORT || 3001
 
 app.listen(PORT, () => {
     console.log("App is listening on ", PORT)
