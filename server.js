@@ -18,9 +18,8 @@ connection.on('error', (error) => {
 })
 
 app.use(express.static(`${__dirname}/client/build`))
-app.use('/api/users', UsersController)
 app.use(bodyParser.json())
-
+app.use('/api/users', UsersController)
 app.get('/', (request, response) => {
     response.sendfile(`${__dirname}/client/build/index.html`)
 })
